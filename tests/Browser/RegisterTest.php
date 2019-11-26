@@ -16,14 +16,18 @@ class RegisterTest extends DuskTestCase
     public function testExample()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('http://127.0.0.1:8000/register')
+            $browser->maximize()->visit('http://127.0.0.1:8000/register')
                 ->assertSee('Register')
-                ->type('name', 'Sagar')
-                ->type('email', 'sagardu@gmail.com')
+                ->type('name', str_shuffle('abcdefghijklmnopqrstuvwxyz'))
+                ->type('email', str_shuffle('abcdefghijklmnopqrstuvwxyz').'@gmail.com')
                 ->type('password', 'secret')
-                ->type('password_confirmation','secret')
-                ->press('Register')
-                ->assertSee('Dashboard');
+                ->type('password_confirmation','secret');
+                sleep(1);
+                $browser->press('Register');
+                $browser->assertSee('Dashboard');
+                sleep(2);
+                $browser->click('#launch');
+            $browser->waitForDialog(2);
         });
     }
 }
