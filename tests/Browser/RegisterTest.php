@@ -27,7 +27,6 @@ class RegisterTest extends DuskTestCase
                 $browser->assertSee('Dashboard');
                 sleep(2);
                 $browser->click('#launch');
-            $browser->waitForDialog(2);
         });
     }
 }
