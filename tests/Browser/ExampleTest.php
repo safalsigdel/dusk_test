@@ -19,15 +19,15 @@ class ExampleTest extends DuskTestCase
             $browser->visit('/')
                     ->assertSee('Laravel');
         });
-        $this->browse(function (Browser $browser) {
-            $browser->visit('http://127.0.0.1:8000/dusk-test')
-                    ->assertSee('This is the first test using laravel dusk');
-        });
-        $this->browse(function (Browser $browser) {
-            $browser->visit('http://127.0.0.1:8000/click-link')
-            ->clickLink('click here')
-            ->assertSee('link clicked');
-        });
+//        $this->browse(function (Browser $browser) {
+//            $browser->visit('http://127.0.0.1:8000/dusk-test')
+//                    ->assertSee('This is the first test using laravel dusk');
+//        });
+//        $this->browse(function (Browser $browser) {
+//            $browser->visit('http://127.0.0.1:8000/click-link')
+//            ->clickLink('click here')
+//            ->assertSee('link clicked');
+//        });
 
     }
 }
